@@ -1,0 +1,294 @@
+{\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Calibri;}}
+{\*\generator Riched20 10.0.22621}\viewkind4\uc1 
+\pard\sa200\sl276\slmult1\b\f0\fs22\lang9 Q.1) WAP(Write a Program) to remove Duplicates from a String.(Take any String example with duplicate characters .\par
+\i ANS \b0\i0 :- public class RemoveDuplicates \{\par
+    public static void main(String[] args) \{\par
+                Scanner scanner = new Scanner(System.in);\par
+        System.out.print("Enter a string with duplicate characters: ");\par
+        String input = scanner.nextLine();\par
+        \par
+                String result = removeDuplicates(input);\par
+        System.out.println("String after removing duplicates: " + result);\par
+        scanner.close();\par
+    \}\par
+    public static String removeDuplicates(String str) \{\par
+        // Use a LinkedHashSet to maintain the order and remove duplicates\par
+        LinkedHashSet<Character> set = new LinkedHashSet<>();\par
+        \par
+        // Add each character to the set\par
+        for (char c : str.toCharArray()) \{\par
+            set.add(c);\par
+        \}\par
+\par
+        // Build the result string from the set\par
+        StringBuilder result = new StringBuilder();\par
+        for (char c : set) \{\par
+            result.append(c);\par
+        \}\par
+   return result.toString();\par
+    \}\par
+\}\par
+Q.2) WAP to print Duplicates characters from the String . \par
+\b Q.3) WAP to check if \ldblquote 2552\rdblquote  is palindrome or not ?\par
+ANS :-\b0  public class string \{\par
+    public static void main(String[] args) \{\par
+    String S1 = "2552";\par
+    String S2 = "";\par
+\par
+    for (int i= S1.length()-1; i>=0; i--)\par
+    \{\par
+      S2 = S2+S1.charAt(i);\par
+    \}\par
+    if(S1.equals(S2)) System.out.println("It is a palindrome");\par
+    else System.out.println("It is not a palindrome");\par
+    \}\par
+\}\par
+Q.4)  WAP to count the number of consonants, vowels, special characters in a String. \par
+Ans:- public class CharacterCounter \{\par
+    public static void main(String[] args) \{\par
+        Scanner scanner = new Scanner(System.in);\par
+\par
+        // Prompt the user for input\par
+        System.out.println("Enter a string:");\par
+        String input = scanner.nextLine();\par
+\par
+        // Initialize counters\par
+        int vowels = 0, consonants = 0, specialCharacters = 0;\par
+\par
+        // Convert input to lowercase for easy comparison\par
+        String lowerCaseInput = input.toLowerCase();\par
+\par
+        // Iterate through each character in the string\par
+        for (int i = 0; i < lowerCaseInput.length(); i++) \{\par
+            char ch = lowerCaseInput.charAt(i);\par
+\par
+            if (Character.isLetter(ch)) \{\par
+                // Check if the character is a vowel\par
+                if (ch == 'a' || ch == 'e' || ch == 'i' || ch == 'o' || ch == 'u') \{\par
+                    vowels++;\par
+                \} else \{\par
+                    consonants++;\par
+                \}\par
+            \} else if (!Character.isDigit(ch) && !Character.isWhitespace(ch)) \{\par
+                // Count special characters (excluding spaces and digits)\par
+                specialCharacters++;\par
+            \}\par
+        \}\par
+\par
+        // Output the counts\par
+        System.out.println("Number of vowels: " + vowels);\par
+        System.out.println("Number of consonants: " + consonants);\par
+        System.out.println("Number of special characters: " + specialCharacters);\par
+\par
+        scanner.close();\par
+    \}\par
+\}\par
+\b Q.5) WAP to implement Anagram Checking least inbuilt methods being used ?\par
+ANS:- \b0 public class AnagramCheck \{\par
+    // Function to check if two strings are anagrams\par
+    static boolean areAnagrams(String str1, String str2) \{\par
+        // Remove whitespace and convert to lowercase\par
+        str1 = str1.replaceAll("\\\\s", "").toLowerCase();\par
+        str2 = str2.replaceAll("\\\\s", "").toLowerCase();\par
+\par
+        // If lengths differ, they can't be anagrams\par
+        if (str1.length() != str2.length()) \{\par
+            return false;\par
+        \}\par
+\par
+        // Convert strings to character arrays\par
+        char[] arr1 = str1.toCharArray();\par
+        char[] arr2 = str2.toCharArray();\par
+\par
+        // Sort both arrays manually\par
+        sortArray(arr1);\par
+        sortArray(arr2);\par
+\par
+        // Compare sorted arrays\par
+        for (int i = 0; i < arr1.length; i++) \{\par
+            if (arr1[i] != arr2[i]) \{\par
+                return false;\par
+            \}\par
+        \}\par
+        return true;\par
+    \}\par
+\par
+    // Function to sort a character array manually\par
+    static void sortArray(char[] array) \{\par
+        for (int i = 0; i < array.length - 1; i++) \{\par
+            for (int j = i + 1; j < array.length; j++) \{\par
+                if (array[i] > array[j]) \{\par
+                    // Swap elements\par
+                    char temp = array[i];\par
+                    array[i] = array[j];\par
+                    array[j] = temp;\par
+                \}\par
+            \}\par
+        \}\par
+    \}\par
+\par
+    public static void main(String[] args) \{\par
+        Scanner scanner = new Scanner(System.in);\par
+\par
+        // Input two strings\par
+        System.out.println("Enter the first string:");\par
+        String str1 = scanner.nextLine();\par
+        System.out.println("Enter the second string:");\par
+        String str2 = scanner.nextLine();\par
+\par
+        // Check and print if they are anagrams\par
+        if (areAnagrams(str1, str2)) \{\par
+            System.out.println("The strings are anagrams.");\par
+        \} else \{\par
+            System.out.println("The strings are not anagrams.");\par
+        \}\par
+\}   scanner.close();\par
+    \}\par
+\}\b\par
+\b0\par
+\b Q.6) WAP to implement Pangram Checking with least inbuilt methods being used ?\par
+ANS :- \b0\par
+public class AnagramCheck \{\par
+    // Function to check if two strings are anagrams\par
+    static boolean areAnagrams(String str1, String str2) \{\par
+        // Remove whitespace and convert to lowercase\par
+        str1 = str1.replaceAll("\\\\s", "").toLowerCase();\par
+        str2 = str2.replaceAll("\\\\s", "").toLowerCase();\par
+\par
+        // If lengths differ, they can't be anagrams\par
+        if (str1.length() != str2.length()) \{\par
+            return false;\par
+        \}\par
+\par
+        // Convert strings to character arrays\par
+        char[] arr1 = str1.toCharArray();\par
+        char[] arr2 = str2.toCharArray();\par
+\par
+        // Sort both arrays manually\par
+        sortArray(arr1);\par
+        sortArray(arr2);\par
+\par
+        // Compare sorted arrays\par
+        for (int i = 0; i < arr1.length; i++) \{\par
+            if (arr1[i] != arr2[i]) \{\par
+                return false;\par
+            \}\par
+        \}\par
+        return true;\par
+    \}\par
+\par
+    // Function to sort a character array manually\par
+    static void sortArray(char[] array) \{\par
+        for (int i = 0; i < array.length - 1; i++) \{\par
+            for (int j = i + 1; j < array.length; j++) \{\par
+                if (array[i] > array[j]) \{\par
+                    // Swap elements\par
+                    char temp = array[i];\par
+                    array[i] = array[j];\par
+                    array[j] = temp;\par
+                \}\par
+            \}\par
+        \}\par
+    \}\par
+\par
+    public static void main(String[] args) \{\par
+        Scanner scanner = new Scanner(System.in);\par
+        // Input two strings\par
+        System.out.println("Enter the first string:");\par
+        String str1 = scanner.nextLine();\par
+        System.out.println("Enter the second string:");\par
+        String str2 = scanner.nextLine();\par
+        // Check and print if they are anagrams\par
+        if (areAnagrams(str1, str2)) \{\par
+            System.out.println("The strings are anagrams.");\par
+        \} else \{\par
+            System.out.println("The strings are not anagrams.");\par
+        \}\par
+        scanner.close();\par
+    \}\par
+\}\b\par
+\par
+\b0 Q\b .7)  WAP to find if String contains all unique characters ?\par
+ANS : - \b0\par
+public class UniqueCharacters \{\par
+    public static boolean hasAllUniqueCharacters(String str) \{\par
+        // Using a HashSet to track characters\par
+        HashSet<Character> charSet = new HashSet<>();\par
+        // Loop through each character in the string\par
+        for (char ch : str.toCharArray()) \{\par
+            // If the character is already in the set, return false\par
+            if (!charSet.add(ch)) \{\par
+                return false;\par
+            \}\par
+        \}\par
+        // If all characters were unique, return true\par
+        return true;\par
+  \}\par
+    public static void main(String[] args) \{\par
+        // Test cases\par
+        String testString1 = "abcdef";\par
+        String testString2 = "hello";\par
+        System.out.println("Does \\"" + testString1 + "\\" have all unique characters? " + hasAllUniqueCharacters(testString1));\par
+        System.out.println("Does \\"" + testString2 + "\\" have all unique characters? " + hasAllUniqueCharacters(testString2));\par
+    \}\b\par
+Q.8) WAP to find the maximum occurring character in a String .\par
+ANS :-\b0  import java.util.HashMap;\par
+import java.util.Map;\par
+pimport java.util.HashMap;\par
+import java.util.Map;\par
+\par
+public class MaxOccurringChar \{\par
+    public static void main(String[] args) \{\par
+        String input = "example string";\par
+        char maxChar = getMaxOccurringChar(input);\par
+        System.out.println("The maximum occurring character is: " + maxChar);\par
+    \}\par
+\par
+    public static char getMaxOccurringChar(String str) \{\par
+        if (str == null || str.length() == 0) \{\par
+            throw new IllegalArgumentException("Input string should not be null or empty");\par
+        \}\par
+\par
+        Map<Character, Integer> charCountMap = new HashMap<>();\par
+        for (char c : str.toCharArray()) \{\par
+            charCountMap.put(c, charCountMap.getOrDefault(c, 0) + 1);\par
+        \}\par
+\par
+        char maxChar = str.charAt(0);\par
+        int maxCount = charCountMap.get(maxChar);\par
+        for (Map.Entry<Character, Integer> entry : charCountMap.entrySet()) \{\par
+            if (entry.getValue() > maxCount) \{\par
+                maxChar = entry.getKey();\par
+                maxCount = entry.getValue();\par
+            \}\par
+        \}\par
+\par
+        return maxChar;\par
+    \}\par
+\}ublic class MaxOccurringChar \{\par
+    public static void main(String[] args) \{\par
+        String input = "example string";\par
+        char maxChar = getMaxOccurringChar(input);\par
+        System.out.println("The maximum occurring character is: " + maxChar);\par
+    \}\par
+    public static char getMaxOccurringChar(String str) \{\par
+        if (str == null || str.length() == 0) \{\par
+            throw new IllegalArgumentException("Input string should not be null or empty");\par
+        \}\par
+        Map<Character, Integer> charCountMap = new HashMap<>();\par
+        for (char c : str.toCharArray()) \{\par
+            charCountMap.put(c, charCountMap.getOrDefault(c, 0) + 1);\par
+        \}\par
+        char maxChar = str.charAt(0);\par
+        int maxCount = charCountMap.get(maxChar);\par
+        for (Map.Entry<Character, Integer> entry : charCountMap.entrySet()) \{\par
+            if (entry.getValue() > maxCount) \{\par
+                maxChar = entry.getKey();\par
+                maxCount = entry.getValue();\par
+            \}\par
+        \}\par
+        return maxChar;\par
+    \}\par
+\}\par
+}
+ 
